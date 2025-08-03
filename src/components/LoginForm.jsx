@@ -1,21 +1,25 @@
 import { useState } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth'; // Impor fungsi login Firebase
+import { auth } from '../firebaseConfig'; // Impor konfigurasi auth kita
 import './LoginForm.css';
 
 function LoginForm({ onLoginSuccess }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(''); // 1. State baru untuk pesan error
+  const [error, setError] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setError(''); // 2. Hapus pesan error lama setiap kali tombol diklik
+    setError('');
 
-    // Simulasi pengecekan username dan password
-    if (email === "othman" && password === "123") {
-      onLoginSuccess();
-    } else {
-      // 3. Set pesan error baru jika login gagal (ganti alert)
-      setError("Username atau password yang Anda masukkan salah.");
+    try {
+      // Coba login menggunakan Firebase Auth
+      await signInWithEmailAndPassword(auth, email, password);
+      onLoginSuccess(); // Panggil fungsi jika login berhasil
+    } catch (firebaseError) {
+      // Tangkap dan tampilkan pesan error dari Firebase
+      setError("Email atau password salah.");
+      console.error("Firebase login error:", firebaseError);
     }
   };
 
@@ -23,9 +27,9 @@ function LoginForm({ onLoginSuccess }) {
     <form className="login-form" onSubmit={handleSubmit}>
       <h2>Silakan Login</h2>
       <div className="form-group">
-        <label htmlFor="email">Username/Email</label>
+        <label htmlFor="email">Email</label>
         <input
-          type="text"
+          type="email"
           id="email"
           name="email"
           required
@@ -45,8 +49,6 @@ function LoginForm({ onLoginSuccess }) {
         />
       </div>
       <button type="submit">Masuk</button>
-      
-      {/* 4. Tampilkan pesan error di sini jika state 'error' tidak kosong */}
       {error && <p className="error-message">{error}</p>}
     </form>
   );
