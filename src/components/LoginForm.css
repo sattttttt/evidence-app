@@ -1,0 +1,67 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  padding: 20px;
+  border-radius: 8px;
+
+  /* --- Penyesuaian Tema Gelap --- */
+  background-color: #ffffff; /* Samakan dengan warna kartu dashboard */
+  border: 1px solid #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-form h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #000000; /* Ubah warna judul menjadi putih */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #000000; /* Ubah warna label menjadi terang */
+}
+
+.form-group input {
+  padding: 8px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: #2c2c2c; /* Background input yang sedikit berbeda */
+  color: #ffffff; /* Warna teks saat mengetik menjadi putih */
+  font-size: 1em; /* Pastikan ukuran font sesuai */
+}
+
+/* --- (Bagian Tombol Tidak Perlu Diubah) --- */
+.login-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #db0000; /* Warna merah Telkom */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #a30000;
+}
+
+/* --- STYLE BARU UNTUK PESAN ERROR --- */
+.error-message {
+  color: #ff4d4f; /* Warna merah untuk error */
+  background-color: rgba(255, 77, 79, 0.1);
+  border: 1px solid rgba(255, 77, 79, 0.2);
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 14px;
+}

@@ -1,0 +1,46 @@
+.lop-table-container {
+  width: 100%;
+  max-width: 900px;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.lop-table {
+  width: 100%;
+  border-collapse: collapse; /* Menghilangkan spasi antar border */
+}
+
+.lop-table th,
+.lop-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+.lop-table thead th {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.lop-table tbody tr:hover {
+  background-color: #2c2c2c;
+}
+
+.action-button {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff; /* Warna biru untuk aksi */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}

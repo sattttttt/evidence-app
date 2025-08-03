@@ -1,0 +1,59 @@
+.sto-card {
+  width: 200px;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background-color 0.2s; /* Tambahkan transisi background */
+}
+.sto-card:hover {
+  transform: translateY(-5px);
+  background-color: #2c2c2c; /* Ganti warna background saat hover */
+}
+
+.sto-card h3 {
+  margin: 0 0 5px 0;
+  color: #ffffff;
+}
+
+.sto-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #b0b0b0; /* Warna sub-teks (abu-abu terang) */
+}
+
+.sto-card-link {
+  text-decoration: none; /* Menghilangkan garis bawah */
+  color: inherit; /* Menggunakan warna teks dari parent */
+}
+
+/* ... (kode .sto-card dan .sto-card:hover tetap sama) ... */
+.sto-card h3 {
+  margin: 0 0 5px 0;
+  color: #ffffff;
+  transition: color 0.2s;
+}
+
+.sto-card:hover h3 {
+  color: #ff4f4f;
+}
+
+/* Ganti p menjadi .mitra-count */
+p.mitra-count {
+  margin: 0;
+  font-size: 14px;
+  color: #b0b0b0;
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.2);
+  padding: 2px 8px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.sto-card-link {
+  text-decoration: none;
+  color: inherit;
+}

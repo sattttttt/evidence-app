@@ -1,0 +1,8 @@
+.detail-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Menengahkan konten di dalamnya */
+  width: 100%;
+  max-width: 1200px; /* Lebar maksimal konten */
+  gap: 20px; /* Jarak antar elemen di dalamnya */
+}

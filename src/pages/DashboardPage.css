@@ -1,0 +1,68 @@
+.search-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 20px 20px 20px; /* Padding di bawah search bar */
+  box-sizing: border-box;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #2c2c2c;
+  color: #ffffff;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.search-input::placeholder {
+  color: #888;
+}
+
+.sto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.mitra-card {
+  width: 200px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 2px solid #db0000;
+}
+
+.mitra-card h3 {
+  margin: 0;
+  color: #333;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- Aturan Responsif --- */
+
+/* Untuk layar Tablet (lebar di bawah 768px) */
+@media (max-width: 768px) {
+  .sto-grid {
+    /* Ubah menjadi maksimal 2 kolom */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Untuk layar HP (lebar di bawah 480px) */
+@media (max-width: 480px) {
+  .sto-grid {
+    /* Ubah menjadi 1 kolom */
+    grid-template-columns: 1fr;
+  }
+}
