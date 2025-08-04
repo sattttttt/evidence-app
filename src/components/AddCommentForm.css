@@ -1,0 +1,32 @@
+.add-comment-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  align-items: flex-start; /* Sejajarkan item dari atas */
+}
+.add-comment-form textarea {
+  flex-grow: 1;
+  min-height: 40px;
+  padding: 10px; /* Perbesar padding */
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #2c2c2c;
+  color: white;
+  font-family: inherit;
+  resize: vertical;
+  font-size: 14px; /* Samakan ukuran font */
+}
+.add-comment-form button {
+  padding: 10px 16px; /* Perbesar padding */
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  height: 42px; /* Samakan tinggi dengan textarea */
+}
+.add-comment-form button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}

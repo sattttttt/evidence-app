@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth'; // Impor fungsi login Firebase
-import { auth } from '../firebaseConfig'; // Impor konfigurasi auth kita
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebaseConfig';
 import './LoginForm.css';
 
-function LoginForm({ onLoginSuccess }) {
+// 1. Hapus onLoginSuccess dari sini
+function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -13,11 +14,10 @@ function LoginForm({ onLoginSuccess }) {
     setError('');
 
     try {
-      // Coba login menggunakan Firebase Auth
       await signInWithEmailAndPassword(auth, email, password);
-      onLoginSuccess(); // Panggil fungsi jika login berhasil
+      // 2. Baris onLoginSuccess() dihapus.
+      // Navigasi sekarang ditangani otomatis oleh AuthContext.
     } catch (firebaseError) {
-      // Tangkap dan tampilkan pesan error dari Firebase
       setError("Email atau password salah.");
       console.error("Firebase login error:", firebaseError);
     }

@@ -7,40 +7,55 @@
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 .lop-table {
   width: 100%;
-  border-collapse: collapse; /* Menghilangkan spasi antar border */
+  border-collapse: collapse;
 }
-
 .lop-table th,
 .lop-table td {
   padding: 12px 15px;
   text-align: left;
   border-bottom: 1px solid #333;
 }
-
 .lop-table thead th {
   background-color: #2c2c2c;
   color: #ffffff;
   font-weight: bold;
 }
-
 .lop-table tbody tr:hover {
   background-color: #2c2c2c;
 }
-
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  white-space: nowrap;
+}
+.status-progress { background-color: #6c757d; }
+.status-pending { background-color: #ffc107; color: black; }
+.status-revision { background-color: #dc3545; }
+.status-completed { background-color: #28a745; }
+.action-cell {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
 .action-button {
-  padding: 5px 15px;
+  padding: 5px 10px;
   border: none;
   border-radius: 4px;
-  background-color: #007bff; /* Warna biru untuk aksi */
   color: white;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s;
+  font-size: 12px;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
 }
-
-.action-button:hover {
-  background-color: #0056b3;
-}
+.action-button.open { background-color: #007bff; }
+.action-button.submit { background-color: #17a2b8; }
+.action-button.approve { background-color: #28a745; }
+.action-button.reject { background-color: #dc3545; }

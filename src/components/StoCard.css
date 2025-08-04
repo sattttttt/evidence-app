@@ -34,23 +34,17 @@
 .sto-card h3 {
   margin: 0 0 5px 0;
   color: #ffffff;
-  transition: color 0.2s;
 }
 
-.sto-card:hover h3 {
-  color: #ff4f4f;
-}
-
-/* Ganti p menjadi .mitra-count */
+/* Ubah style p.mitra-count */
 p.mitra-count {
   margin: 0;
   font-size: 14px;
   color: #b0b0b0;
-  font-weight: bold;
-  background-color: rgba(0,0,0,0.2);
-  padding: 2px 8px;
-  border-radius: 10px;
-  display: inline-block;
+  font-weight: normal; /* Dibuat normal agar tidak terlalu menonjol */
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
 }
 
 .sto-card-link {

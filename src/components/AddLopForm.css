@@ -1,0 +1,52 @@
+.add-lop-form {
+  width: 100%;
+  max-width: 900px;
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  margin-bottom: 20px;
+}
+
+.add-lop-form h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+/* PERBAIKI BAGIAN INI */
+.add-lop-form .form-group label {
+  color: #e0e0e0; /* Ubah warna label menjadi terang */
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.add-lop-form .form-group input {
+  width: 100%;
+  box-sizing: border-box;
+}
+/* -------------------- */
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-actions button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.cancel-button {
+  background-color: #444;
+  color: white;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+}

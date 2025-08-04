@@ -1,9 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // 1. Impor Link
+import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './LopTable.css';
 
-// 2. Terima stoId dan mitraId sebagai props
-function LopTable({ lops, stoId, mitraId }) {
+function LopTable({ lops, stoId, mitraId, onUpdateStatus }) {
+  const { currentUser } = useAuth();
+
+  // Fungsi untuk mendapatkan style kelas berdasarkan status
+  const getStatusClass = (status) => {
+    switch (status) {
+      case 'Pending Review': return 'status-pending';
+      case 'Needs Revision': return 'status-revision';
+      case 'Completed': return 'status-completed';
+      default: return 'status-progress';
+    }
+  };
+
   return (
     <div className="lop-table-container">
       <table className="lop-table">
@@ -11,20 +23,38 @@ function LopTable({ lops, stoId, mitraId }) {
           <tr>
             <th>No.</th>
             <th>Nama LOP</th>
+            <th>Status</th>
             <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
           {lops.map((lop, index) => (
-            <tr key={lop.id}>
+            <tr key={lop.firestoreId}>
               <td>{index + 1}</td>
               <td>{lop.name}</td>
               <td>
-                {/* 3. Ubah button menjadi Link */}
-                <Link 
-                  to={`/sto/${stoId}/mitra/${mitraId}/lop/${lop.id}`}
-                  className="action-button"
-                >
+                <span className={`status-badge ${getStatusClass(lop.status)}`}>
+                  {lop.status || 'In Progress'}
+                </span>
+              </td>
+              <td className="action-cell">
+                {/* Aksi untuk Waspang */}
+                {currentUser?.role === 'Waspang' && (lop.status === 'In Progress' || lop.status === 'Needs Revision') && (
+                  <button onClick={() => onUpdateStatus(lop.firestoreId, 'Pending Review')} className="action-button submit">
+                    Submit Review
+                  </button>
+                )}
+
+                {/* Aksi untuk Staff Admin */}
+                {currentUser?.role === 'Staff Admin' && lop.status === 'Pending Review' && (
+                  <>
+                    <button onClick={() => onUpdateStatus(lop.firestoreId, 'Completed')} className="action-button approve">Approve</button>
+                    <button onClick={() => onUpdateStatus(lop.firestoreId, 'Needs Revision')} className="action-button reject">Reject</button>
+                  </>
+                )}
+
+                {/* Tombol Open tetap ada untuk semua */}
+                <Link to={`/sto/${stoId}/mitra/${mitraId}/lop/${lop.id}`} className="action-button open">
                   Open
                 </Link>
               </td>

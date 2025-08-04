@@ -66,3 +66,25 @@
     grid-template-columns: 1fr;
   }
 }
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 900px; /* Samakan dengan lebar tabel */
+  margin-bottom: 20px;
+}
+
+.add-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #28a745; /* Warna hijau untuk tambah */
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

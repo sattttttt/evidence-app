@@ -1,14 +1,29 @@
 import React from 'react';
-import { IoLogOutOutline } from 'react-icons/io5'; // 1. Impor ikon
+import { signOut } from 'firebase/auth';      // 1. Impor fungsi signOut
+import { auth } from '../firebaseConfig';      // 2. Impor konfigurasi auth kita
+import { IoLogOutOutline } from 'react-icons/io5';
 import './Header.css';
 
-function Header({ onLogout }) {
+// Hapus prop 'onLogout' dari parameter
+function Header() {
+
+  // 3. Buat fungsi handleLogout di dalam komponen ini
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      // Pengguna akan otomatis diarahkan ke halaman login karena
+      // AuthContext akan mendeteksi perubahan status autentikasi.
+    } catch (error) {
+      console.error("Gagal untuk logout:", error);
+    }
+  };
+
   return (
     <header className="app-header">
       <div className="header-content">
         <h2 className="app-title">Evidence Management</h2>
-        {/* 2. Tambahkan ikon di dalam tombol */}
-        <button onClick={onLogout} className="logout-button">
+        {/* 4. Panggil fungsi handleLogout yang baru kita buat */}
+        <button onClick={handleLogout} className="logout-button">
           <IoLogOutOutline /> 
           <span>Logout</span>
         </button>
