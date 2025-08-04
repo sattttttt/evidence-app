@@ -155,7 +155,7 @@ function EvidencePage() {
           <Link to={`/sto/${stoId}/mitra/${mitraId}`}>{mitraName}</Link>
         </div>
         <h1>Evidence Untuk: {lopName}</h1>
-        <p>Pilih kategori untuk melihat atau mengunggah bukti.</p>
+        <p>Pilih kategori untuk melihat atau mengunggah evidence yang diperlukan.</p>
         
         <div className="evidence-grid">
           {Object.keys(initialEvidenceData).map(category => (

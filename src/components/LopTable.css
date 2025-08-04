@@ -59,3 +59,6 @@
 .action-button.submit { background-color: #17a2b8; }
 .action-button.approve { background-color: #28a745; }
 .action-button.reject { background-color: #dc3545; }
+
+.action-button.edit { background-color: #ffc107; color: black; }
+.action-button.edit:hover { background-color: #e0a800; }

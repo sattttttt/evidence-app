@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { FaEdit, FaTrash, FaFolderOpen } from 'react-icons/fa';
 import './LopTable.css';
 
-function LopTable({ lops, stoId, mitraId, onUpdateStatus }) {
+function LopTable({ lops, stoId, mitraId, onUpdateStatus, onEdit, onDelete }) {
   const { currentUser } = useAuth();
 
-  // Fungsi untuk mendapatkan style kelas berdasarkan status
   const getStatusClass = (status) => {
     switch (status) {
       case 'Pending Review': return 'status-pending';
@@ -38,14 +38,14 @@ function LopTable({ lops, stoId, mitraId, onUpdateStatus }) {
                 </span>
               </td>
               <td className="action-cell">
-                {/* Aksi untuk Waspang */}
+                {/* Aksi Status untuk Waspang */}
                 {currentUser?.role === 'Waspang' && (lop.status === 'In Progress' || lop.status === 'Needs Revision') && (
                   <button onClick={() => onUpdateStatus(lop.firestoreId, 'Pending Review')} className="action-button submit">
                     Submit Review
                   </button>
                 )}
 
-                {/* Aksi untuk Staff Admin */}
+                {/* Aksi Status untuk Staff Admin */}
                 {currentUser?.role === 'Staff Admin' && lop.status === 'Pending Review' && (
                   <>
                     <button onClick={() => onUpdateStatus(lop.firestoreId, 'Completed')} className="action-button approve">Approve</button>
@@ -53,9 +53,17 @@ function LopTable({ lops, stoId, mitraId, onUpdateStatus }) {
                   </>
                 )}
 
-                {/* Tombol Open tetap ada untuk semua */}
+                {/* Aksi Edit & Hapus untuk Waspang */}
+                {currentUser?.role === 'Waspang' && (
+                  <>
+                    <button onClick={() => onEdit(lop)} className="action-button edit"><FaEdit /></button>
+                    <button onClick={() => onDelete(lop.firestoreId)} className="action-button reject"><FaTrash /></button>
+                  </>
+                )}
+                
+                {/* Tombol Open untuk semua */}
                 <Link to={`/sto/${stoId}/mitra/${mitraId}/lop/${lop.id}`} className="action-button open">
-                  Open
+                  <FaFolderOpen />
                 </Link>
               </td>
             </tr>
